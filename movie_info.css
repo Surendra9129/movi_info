@@ -1,0 +1,45 @@
+#container{
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    gap: 1%;
+    margin-top:  30px;
+    margin-left: 20px;
+}
+img{
+    height: 300px;
+    width: 350px;
+}
+body{
+    background-color:#455A64 ;
+}
+h3{
+    color: antiquewhite;
+}
+input{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 800px;
+    display: inline-block;
+}
+h1{
+    display: inline-block;
+    margin-left: 80px;
+    background-color: burlywood;
+}
+span{
+    color: #D50000;
+}
+#err{
+    margin-left: 1100px;
+    margin-top: -20px;
+}
+#navbar{
+    background-color: black;
+    
+}
+#slide>img{
+    width: 1500px;
+    height: 650px;
+    margin-top: 20px;
+}
