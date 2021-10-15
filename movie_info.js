@@ -92,3 +92,14 @@ main.append(div);
 
 })
 }
+
+let signup=document.getElementById('signup');
+signup.addEventListener('click',function(){
+    window.location.href="signup1.html"
+});
+
+
+let loginIn=document.getElementById('loginIn');
+loginIn.addEventListener('click',function(){
+    window.location.href="login1.html"
+})

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>login</h1>
+    <form action="" id="login_form" onsubmit="login(event)">
+        <label for="">username</label>
+        <input type="text" name="" id="user" placeholder="type your password"><br>
+        <label for="">password</label>
+        <input type="password" name="" id="pass" placeholder="type your password"><br>
+        <input type="submit" name="" id="">
+     
+    </form>
+
+    <script>
+        
+        function login(e){
+e.preventDefault();
+let form=document.getElementById('login_form');
+
+let data={
+    username:form.user.value,
+    password:form.pass.value,
+ 
+};
+let data_to_send=JSON.stringify(data);
+//console.log(data_to_send);
+
+fetch("https://masai-api-mocker.herokuapp.com/auth/login",{
+
+method:'POST',
+body:data_to_send,
+headers:{
+    'Content-Type':'application/json',
+}
+
+})
+.then((res)=>{
+    return res.json();
+})
+.then((res)=>{
+    console.log(res);
+    fetchmydata(data.username,res.token)
+})
+.catch((err)=>{
+    console.log(err);
+})
+
+}
+function fetchmydata(username,token){
+    fetch(`https://masai-api-mocker.herokuapp.com/user/${username}`,{
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':`Bearer ${token}`
+        }
+    })
+    .then((res)=>{
+        return res.json();
+    })
+    .then((res)=>{
+        window.location.href="login_success.html"
+    })
+    .catch((err)=>{
+      alert(err);
+    })
+}
+
+ 
+
+    </script>
+</body>
+</html>
